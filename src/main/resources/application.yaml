@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: idopontfolalo_projekt
+  datasource:
+    url: jdbc:mysql://localhost:33060/idopontfoglalas?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    username: root
+    password: test1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      format_sql: true
+server:
+  port: 8081
