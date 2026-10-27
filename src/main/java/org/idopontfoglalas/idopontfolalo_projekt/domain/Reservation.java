@@ -20,10 +20,10 @@ public class Reservation {
     @JoinColumn(name = "account_id")
     private Account account;
     @ManyToOne
-    @JoinColumn(name = "service_id")
-    private Services service;
-
-    private String status;
+    @JoinColumn(name = "service_id", nullable = false)
+    private ServiceItem serviceItem;
+    @Enumerated(EnumType.STRING)
+    private ReservationStatus status;
     private String startTime;
     private String endTime;
 
@@ -32,8 +32,8 @@ public class Reservation {
         return "Reservation{" +
                 "id=" + id +
                 ", account=" + account.getName() +
-                ", service=" + service +
-                ", status='" + status + '\'' +
+                ", service=" + serviceItem +
+                ", status='" + status.toString() + '\'' +
                 ", startTime='" + startTime + '\'' +
                 ", endTime='" + endTime + '\'' +
                 '}';

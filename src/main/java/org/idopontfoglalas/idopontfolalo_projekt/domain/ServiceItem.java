@@ -12,7 +12,7 @@ import java.util.List;
 @Table(name = "services")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Services {
+public class ServiceItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,6 +20,6 @@ public class Services {
     private Long duration;
     private Long price;
 
-    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "serviceItem", fetch = FetchType.LAZY)
     private List<Reservation> reservations;
 }

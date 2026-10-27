@@ -23,9 +23,10 @@ public class Account {
     @JsonIgnore
     @ToString.Exclude
     private String password;
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private AccountRole role;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reservation> reservations;
 
 }
